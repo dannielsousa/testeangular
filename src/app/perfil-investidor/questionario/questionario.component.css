@@ -1,0 +1,12 @@
+.formatar-paragrafo {
+  text-align: center
+}
+
+.formatar-input {
+  float: left;
+  margin-top: 6px;
+}
+
+.separador {
+  border-bottom: 1px dashed #ccc;
+}

@@ -1,0 +1,33 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="salvar(f)">
+    <div *ngFor="let questao of questoes">
+
+      <div [ngSwitch]="questao.controlType">
+
+        <div *ngSwitchCase="'separador'" class="ui-g-12 separador"></div>
+
+        <div *ngSwitchCase="'label'" class="{{questao.class}}">
+          <span>{{questao.label}}</span>
+        </div>
+
+        <div *ngSwitchCase="'radio'" class="ui-g-12">
+          <div *ngFor="let opc of questao.opcoes" class="{{opc.class}}">
+            <p-radioButton name="{{questao.name}}" value="{{opc.id}}" label="{{opc.texto}}" [formControlName]="questao.order" [(ngModel)]=""></p-radioButton>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'dropdown'" class="ui-g-6 formatar-paragrafo">
+          <div class="{{questao.class}}">
+            <span>{{questao.texto}}</span>
+          </div>
+          <p-dropdown [options]="questao.opcoes" placeholder="Selecione uma opção" [formControlName]="questao.order"> </p-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <a pButton type="button" label="Novo" class="ui-button-info" routerLink="/informacoes-recebidas"></a>
+      <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
+    </div>
+
+  </form>
+</div>

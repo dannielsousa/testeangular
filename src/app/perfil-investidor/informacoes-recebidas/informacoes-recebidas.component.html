@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="ui-g">
+    <div class="ui-g-12" style="text-align: center">
+
+      <h1>Informações Recebidas</h1>
+      <p>Em até 48h daremos um retorno sobre a abertura de sua conta.</p>
+      <p>Para receber nossas recomentações de investimentos e começar a investir, precisamos receber seu perfil de investidor.</p>
+      <p>São apenas 4 perguntas, que irão guiar todas as suas decisões de investimento.</p>
+      <p>Gostaria de responder ao Perfil do investidor?</p>
+
+      <button type="button" pButton label="Sim" (click)="paginaQuestionario()"></button>
+      <button type="button" pButton label="Não" (click)="showDialog()"></button>
+
+      <p-dialog header="Termo" [(visible)]="display" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200" [minY]="70">
+
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui nam pariatur quae obcaecati, nemo fugit mollitia suscipit tenetur
+          distinctio illo officiis tempora hic voluptate aut quam nihil aspernatur perspiciatis odit!
+        </span>
+        <p>
+          <p-checkbox [(ngModel)]="checked" binary="true" label="Li e aceito oos termos e condições acima."></p-checkbox>
+        </p>
+          <button type="button" pButton icon="fa-check" (click)="aceite()" label="Ok, Entendi" [disabled]="!checked" > </button>
+      </p-dialog>
+    </div>
+  </div>
+</div>
