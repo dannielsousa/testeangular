@@ -11,7 +11,7 @@ import { DialogModule } from 'primeng/components/dialog/dialog';
 import { CheckboxModule } from 'primeng/components/checkbox/checkbox';
 import { RadioButtonModule } from 'primeng/components/radiobutton/radiobutton';
 import { DropdownModule } from 'primeng/components/dropdown/dropdown';
-
+import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,7 +21,8 @@ import { DropdownModule } from 'primeng/components/dropdown/dropdown';
     FormsModule,
     RadioButtonModule,
     DropdownModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    TooltipModule 
   ],
   declarations: [
     InformacoesRecebidasComponent, 

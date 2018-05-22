@@ -1,34 +1,74 @@
 <div class="container">
-    <form (ngSubmit)="salvar(f)" [formGroup]="form">
-    <div *ngFor="let questao of questoes">
+    <form  
+    (ngSubmit)="onSubmit()" 
+    [formGroup]="form">
 
-      <div [ngSwitch]="questao.controlType">
+      <div *ngFor="let questao of questoes">
 
-        <div *ngSwitchCase="'separador'" class="ui-g-12 separador"></div>
+        <div [ngSwitch]="questao.controlType">
 
-        <div *ngSwitchCase="'label'" class="{{questao.class}}">
-          <span>{{questao.label}}</span>
-        </div>
-
-        <div *ngSwitchCase="'radio'" class="ui-g-12">
-          <div *ngFor="let opc of questao.opcoes" class="{{opc.class}}">
-            {{questao.name}}
-            <p-radioButton [name]="questao.name" value="{{opc.id}}" label="{{opc.texto}}" [formControlName]="questao.key" ></p-radioButton>
+          <div
+          *ngSwitchCase="'separador'" 
+          class="ui-g-12 separador">
           </div>
-        </div>
 
-        <div *ngSwitchCase="'dropdown'" class="ui-g-6 formatar-paragrafo">
-          <div class="{{questao.class}}">
-            <span>{{questao.texto}}</span>
+          <div 
+            *ngSwitchCase="'label'" 
+            class="{{questao.class}}">
+            <span>{{questao.label}}</span>
           </div>
-          <p-dropdown [options]="questao.opcoes" placeholder="Selecione uma opção" [formControlName]="questao.order"> </p-dropdown>
+
+          <div 
+          *ngSwitchCase="'radio'" 
+          class="ui-g-12 formatar-paragrafo">
+            <div 
+            *ngFor="let opc of questao.opcoes" 
+            class="{{opc.class}}">
+              
+              <p-radioButton
+              [name]="questao.name" 
+              [value]="opc.id" 
+              [label]="opc.texto" 
+              [formControlName]="questao.key" 
+              required="opc.required">
+              </p-radioButton>
+            </div>
+          </div>
+
+          <div 
+          *ngSwitchCase="'dropdown'" 
+          class="ui-g-12 ui-md-6 formatar-paragrafo">
+            <div class="{{questao.class}}">
+              <span>{{questao.texto}}</span>
+            </div>
+            <p-dropdown 
+            [options]="questao.opcoes" 
+            placeholder="Selecione uma opção" 
+            [formControlName]="questao.key" 
+            required="questao.required"> 
+            </p-dropdown>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="ui-g-12">
-      <a pButton type="button" label="Novo" class="ui-button-info" routerLink="/informacoes-recebidas"></a>
-      <button pButton type="submit" label="Salvar" [disabled]="f.invalid"></button>
-    </div>
+
+      <div class="ui-g-12 ajuste-botoes">
+        <a 
+        pButton 
+        type="button" 
+        label="Voltar" 
+        class="ui-button-secondary" 
+        
+        routerLink="/informacoes-recebidas">
+        </a>
+        
+        <button 
+        pButton 
+        type="submit" 
+        label="Salvar" 
+        class="ui-button-warning"
+        [disabled]="!form.valid">
+        </button>
+      </div>
 
   </form>
 </div>

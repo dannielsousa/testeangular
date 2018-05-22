@@ -19,9 +19,7 @@ label {
   font-weight: bold;
 }
 
-.ui-dropdown-filter-container {
-  width: 100%;
-}
+
 
 @media (min-width: 1200px) {
   .container {
@@ -30,6 +28,36 @@ label {
   }
 }
 
-.teste {
-  text-align: center
+/* Customização dos radiobuttons*/
+.fa-circle:before {
+  content: "\f00c";
+}
+.ui-label-active{
+  color: red;
+}
+.ui-radiobutton-icon {
+  font-size: 0.7em;
+}
+.ui-radiobutton-box.ui-state-active {
+  background-color: red;
+  border: #fff;
+}
+
+/*Customização dos dropdowns*/
+
+.ui-dropdown {
+  border: none;
+  border-bottom: 1px solid #d6d6d6
+}
+.ui-dropdown .ui-dropdown-trigger {
+  border-left: 0;
+}
+
+.ui-dropdown-filter-container {
+  width: 100%;
+}
+
+.ui-button {
+  font-size: 16px;
+  padding: 0px 10px ;
 }

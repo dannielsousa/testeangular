@@ -10,3 +10,11 @@
 .separador {
   border-bottom: 1px dashed #ccc;
 }
+
+.ajuste-botoes {
+  text-align: center;
+}
+
+.ajuste-botoes a {
+  margin-right: 20px;
+}
