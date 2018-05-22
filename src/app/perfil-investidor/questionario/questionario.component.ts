@@ -1,7 +1,7 @@
 import { QuestionarioService } from './questionario.service';
 import { Questao } from './questao';
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-questionario',
@@ -13,11 +13,14 @@ import { FormGroup } from '@angular/forms';
 )
 
 export class QuestionarioComponent {
-
   @Input() question: Questao<any>;
+  
 
-  form: FormGroup;
   questoes: any[];
+
+  form = new FormGroup({
+    firstName: new FormControl()
+  });
 
   constructor(service: QuestionarioService) {
     this.questoes = service.getQuestoes();

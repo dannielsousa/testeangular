@@ -1,5 +1,5 @@
 <div class="container">
-    <form #f="ngForm" (ngSubmit)="salvar(f)">
+    <form (ngSubmit)="salvar(f)" [formGroup]="form">
     <div *ngFor="let questao of questoes">
 
       <div [ngSwitch]="questao.controlType">
@@ -12,7 +12,8 @@
 
         <div *ngSwitchCase="'radio'" class="ui-g-12">
           <div *ngFor="let opc of questao.opcoes" class="{{opc.class}}">
-            <p-radioButton name="{{questao.name}}" value="{{opc.id}}" label="{{opc.texto}}" [formControlName]="questao.order" [(ngModel)]=""></p-radioButton>
+            {{questao.name}}
+            <p-radioButton [name]="questao.name" value="{{opc.id}}" label="{{opc.texto}}" [formControlName]="questao.key" ></p-radioButton>
           </div>
         </div>
 
