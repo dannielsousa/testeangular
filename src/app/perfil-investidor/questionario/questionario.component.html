@@ -27,8 +27,8 @@
               
               <p-radioButton
               [name]="questao.name" 
-              [value]="opc.id" 
-              [label]="opc.texto" 
+              [value]="opc.label" 
+              [label]="opc.label" 
               [formControlName]="questao.key" 
               required="opc.required">
               </p-radioButton>
@@ -39,14 +39,14 @@
           *ngSwitchCase="'dropdown'" 
           class="ui-g-12 ui-md-6 formatar-paragrafo">
             <div class="{{questao.class}}">
-              <span>{{questao.texto}}</span>
+              <span>{{questao.label}}</span>
             </div>
-            <p-dropdown 
-            [options]="questao.opcoes" 
-            placeholder="Selecione uma opção" 
-            [formControlName]="questao.key" 
-            required="questao.required"> 
-            </p-dropdown>
+
+            <select *ngSwitchCase="'dropdown'" [formControlName]="questao.key" [id]="questao.key" label="Selecione" [class]="'dropdown'" required="questao.required" >
+              <option value='' disabled selected="selected">Selecione uma opção </option>
+              <option *ngFor="let opt of questao.opcoes" [value]="opt.label">{{opt.label}}</option>
+            </select>
+
           </div>
         </div>
       </div>
@@ -66,9 +66,9 @@
         type="submit" 
         label="Salvar" 
         class="ui-button-warning"
-        [disabled]="!form.valid">
-        </button>
+        [disabled]="!form.valid"
+        >
+      </button>
       </div>
-
   </form>
 </div>

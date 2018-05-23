@@ -1,8 +1,10 @@
+import { RespostaService } from './respotas.service';
 import { ControleDeQuestoesService } from './controle-de-questoes.service';
 import { QuestionarioService } from './questionario.service';
 import { Questao } from './questao';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, NgModule } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questionario',
@@ -18,25 +20,39 @@ export class QuestionarioComponent implements OnInit {
 
   questoes: any[];
   form: FormGroup;
-  payLoad = '';
-
+  pergunta4: string;
+  pergunta5: string;
+  pergunta6: string;
+  pergunta7: string;
 
   constructor(
-    private service: QuestionarioService, 
-    private cdq: ControleDeQuestoesService
+    private questionarioService: QuestionarioService, 
+    private cdq: ControleDeQuestoesService,
+    private router: Router,
+    public respostaService: RespostaService
   ) {}
 
   ngOnInit() {
-    this.questoes = this.service.getQuestoes();
+    this.questoes = this.questionarioService.getQuestoes();
     this.form = this.cdq.toFormGroup(this.questoes);
   }
 
   onSubmit() {
-    console.log(this.form.value);
+    this.respostas = Object.values(this.form.value);
+    this.router.navigateByUrl('/cadastro-realizado');
   }
 
-  get isValid() { 
-    console.log(this.form.valid);
-    return this.form.valid; }
 
+
+  get isValid() { 
+    return this.form.valid; 
+  }
+
+  get respostas() {
+    return this.respostaService.respostaData;
+  }
+
+  set respostas(value: any) {
+    this.respostaService.respostaData = value;
+  }
 }

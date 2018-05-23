@@ -45,16 +45,9 @@ label {
 
 /*Customização dos dropdowns*/
 
-.ui-dropdown {
+.dropdown {
   border: none;
   border-bottom: 1px solid #d6d6d6
-}
-.ui-dropdown .ui-dropdown-trigger {
-  border-left: 0;
-}
-
-.ui-dropdown-filter-container {
-  width: 100%;
 }
 
 .ui-button {

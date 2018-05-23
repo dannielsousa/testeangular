@@ -1,3 +1,4 @@
+import { RespostaService } from './questionario/respotas.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InformacoesRecebidasComponent } from './informacoes-recebidas/informacoes-recebidas.component';
@@ -28,6 +29,9 @@ import { TooltipModule } from 'primeng/components/tooltip/tooltip';
     InformacoesRecebidasComponent, 
     QuestionarioComponent, 
     CadastroRealizadoComponent
+  ],
+  providers: [
+    RespostaService
   ]
 })
 export class PerfilInvestidorModule { }
