@@ -1,8 +1,28 @@
 <div class="container">
   <div class="ui-g">
-    <div class="ui-g-12">
-      <h1>Cadastro realizado com sucesso.</h1>
-      {{resposta}}
+    <div class="ui-g-12 formatar-paragrafo">
+      <h1>Cadastro Realizado com sucesso!</h1>
+    </div>
+    <div *ngIf="respostas" class="respostas">
+      <div class="ui-g-12 formatar-paragrafo ">
+        <h2>Lista de Respostas</h2>
+      </div>
+      <div class="ui-g-12">
+        <p-dataTable [value]="perguntasRespostas" [paginator]="true" [rows]="5" [responsive]="true">
+            <p-column field="pergunta" header="Pergunta">  </p-column>
+            <p-column field="resposta" header="Resposta">  </p-column>
+        </p-dataTable>
+      </div>
+    </div>
+    <div class="ui-g-12 formatar-paragrafo">
+        <button
+        pButton 
+        type="button" 
+        label="Voltar" 
+        class="ui-button-secondary" 
+        
+        (click)="voltar()">
+        </button>
     </div>
   </div>
 </div>

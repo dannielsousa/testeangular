@@ -42,7 +42,9 @@ export class QuestionarioComponent implements OnInit {
     this.router.navigateByUrl('/cadastro-realizado');
   }
 
-
+  voltar() {
+    this.router.navigateByUrl('/informacoes-recebidas');
+  }
 
   get isValid() { 
     return this.form.valid; 

@@ -6,13 +6,14 @@ import { QuestionarioComponent } from './questionario/questionario.component';
 import { CadastroRealizadoComponent } from './cadastro-realizado/cadastro-realizado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+import { DataTableModule } from 'primeng/components/datatable/datatable';
 import { ButtonModule } from 'primeng/components/button/button';
 import { DialogModule } from 'primeng/components/dialog/dialog';
 import { CheckboxModule } from 'primeng/components/checkbox/checkbox';
 import { RadioButtonModule } from 'primeng/components/radiobutton/radiobutton';
 import { DropdownModule } from 'primeng/components/dropdown/dropdown';
-import { TooltipModule } from 'primeng/components/tooltip/tooltip';
+import { DataListModule } from 'primeng/datalist';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -23,7 +24,7 @@ import { TooltipModule } from 'primeng/components/tooltip/tooltip';
     RadioButtonModule,
     DropdownModule,
     ReactiveFormsModule,
-    TooltipModule 
+    DataTableModule
   ],
   declarations: [
     InformacoesRecebidasComponent, 
